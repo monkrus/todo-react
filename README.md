@@ -6,3 +6,4 @@
 1. `npx create-react-app .`
 2. `npm install --global yarn`
 3. `yarn add antd`
+4. `npm start`
