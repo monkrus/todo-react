@@ -1,27 +1,24 @@
 const baseUrl = `${process.env.REACT_APP_API_URL}/todos`;
 
-export const loadTodos = async () => {
-  const res = await fetch(baseUrl);
-    return await res.json();
+export const loadTodos = () => {
+  return fetch(baseUrl).then((res) => res.json());
 };
 
-export const getTodo = async (id) => {
-  const res = await fetch(`${baseUrl}/${id}`);
-    return await res.json();
+export const getTodo = (id) => {
+  return fetch(`${baseUrl}/${id}`).then((res) => res.json());
 };
 
-export const createTodo = async (todo) => {
-  const res = await fetch(baseUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            title: todo.title,
-            completed: todo.completed,
-        }),
-    });
-    return await res.json();
+export const createTodo = (todo) => {
+  return fetch(baseUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: todo.title,
+      completed: todo.completed,
+    }),
+  }).then((res) => res.json());
 };
 
 export const updateTodo = (todo) => {
@@ -37,9 +34,9 @@ export const updateTodo = (todo) => {
     }),
   });
 };
-export const deleteTodo = async (id) => {
-    const res = await fetch(`${baseUrl}/${id}`, {
-        method: "DELETE",
-    });
-    return await res.json();
-  };
+
+export const deleteTodo = (id) => {
+  return fetch(`${baseUrl}/${id}`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
