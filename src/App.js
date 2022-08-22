@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import { Button } from 'antd';
+import "./App.css";
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
-    <div className="App">
-      <Button type = "primary">Button</Button>
-      </div>
+    <div>
+      <TodoList />
+    </div>
   );
 }
 
-      export default App;
+export default App;
